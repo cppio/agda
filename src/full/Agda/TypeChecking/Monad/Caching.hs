@@ -138,8 +138,8 @@ cleanCachedLog = do
 activateLoadedFileCache :: (HasOptions m, MonadDebug m, MonadTCState m) => m ()
 activateLoadedFileCache = do
   reportSLn "cache" 10 $ "activateLoadedFileCache"
-
-  whenM (optGHCiInteraction <$> commandLineOptions) $
+  opts <- commandLineOptions
+  when (optGHCiInteraction opts || optJSONInteraction opts) $
     whenM enableCaching $ do
       modifyCache $ \case
          Nothing                          -> Just $ LoadedFileCache [] []
