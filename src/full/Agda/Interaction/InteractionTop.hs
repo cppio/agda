@@ -459,6 +459,7 @@ independent (Cmd_compile {})                = True
 independent (Cmd_load_highlighting_info {}) = True
 independent Cmd_tokenHighlighting {}        = True
 independent Cmd_show_version                = True
+independent Cmd_exit                        = True
 independent _                               = False
 
 -- | Should 'Resp_InteractionPoints' be issued after the command has
